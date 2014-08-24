@@ -2,6 +2,8 @@
 
 @section('content')
 
+<p class="timezone-notice">Timezone is UTC</p>
+
 <h1>{{ date('F j, Y') }}</h1>
 
 @if (count($messages))
