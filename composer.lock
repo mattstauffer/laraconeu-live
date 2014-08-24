@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "09bc04ce28dea2112c3520ff326ab899",
+    "hash": "44fea5cbf2c0c0e938d743547b9f7944",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1627,6 +1627,104 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "laravel/envoy",
+            "version": "v1.0.16",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/envoy.git",
+                "reference": "c9121cea9a7b7c1ca0ca3c875ec38297f727abb9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/envoy/zipball/c9121cea9a7b7c1ca0ca3c875ec38297f727abb9",
+                "reference": "c9121cea9a7b7c1ca0ca3c875ec38297f727abb9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~4.1",
+                "nategood/httpful": "~0.2",
+                "symfony/console": "~2.3",
+                "symfony/process": "~2.3"
+            },
+            "bin": [
+                "envoy"
+            ],
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com",
+                    "homepage": "https://github.com/taylorotwell",
+                    "role": "Creator of Laravel"
+                }
+            ],
+            "description": "Elegant SSH tasks for PHP.",
+            "keywords": [
+                "laravel",
+                "ssh"
+            ],
+            "time": "2014-05-02 22:00:55"
+        },
+        {
+            "name": "nategood/httpful",
+            "version": "0.2.16",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nategood/httpful.git",
+                "reference": "150bfb53f6e4b78e8152e0a9ccc227bb0e3daf62"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nategood/httpful/zipball/150bfb53f6e4b78e8152e0a9ccc227bb0e3daf62",
+                "reference": "150bfb53f6e4b78e8152e0a9ccc227bb0e3daf62",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Httpful": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nate Good",
+                    "email": "me@nategood.com",
+                    "homepage": "http://nategood.com"
+                }
+            ],
+            "description": "A Readable, Chainable, REST friendly, PHP HTTP Client",
+            "homepage": "http://github.com/nategood/httpful",
+            "keywords": [
+                "api",
+                "curl",
+                "http",
+                "requests",
+                "rest",
+                "restful"
+            ],
+            "time": "2014-07-19 15:28:59"
+        },
         {
             "name": "ocramius/instantiator",
             "version": "1.1.2",
