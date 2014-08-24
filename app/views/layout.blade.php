@@ -21,8 +21,18 @@
 <header class="site-header">
     <div class="container">
         <img src="{{ asset('img/logo.png') }}" alt="Laracon EU" />
+
+        @if (Route::currentRouteNamed('home'))
+        <div class="button button-style2 button-style2-active">Live Blog</div>
+        @else
         <a class="button button-style2" href="{{ route('home') }}">Live Blog</a>
-        <a class="button button-style1" href="#">Schedule</a>
+        @endif
+
+        @if (Route::currentRouteNamed('schedule'))
+        <div class="button button-style1 button-style1-active">Schedule</div>
+        @else
+        <a class="button button-style1" href="{{ route('schedule') }}">Schedule</a>
+        @endif
     </div>
 </header>
 

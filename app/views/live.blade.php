@@ -2,8 +2,9 @@
 
 @section('content')
 
+<h1>{{ date('F j, Y') }}</h1>
+
 @if (count($messages))
-    <h2>{{ date('F j, Y') }}</h2>
     @foreach($messages as $message)
     <div class="message">
         <div class="date">{{ $message->created_at->format('H:i:s') }}</div>

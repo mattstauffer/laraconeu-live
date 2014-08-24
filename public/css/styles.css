@@ -39,7 +39,8 @@ img {
     color: #094BA0;
     border-color: #094BA0;
 }
-.button-style1:hover {
+.button-style1:hover,
+.button-style1-active {
     color: #eee;
     border-color: #eee;
     background: #094BA0;
@@ -50,7 +51,8 @@ img {
     background: #eee;
     border-color: #C38213;
 }
-.button-style2:hover {
+.button-style2:hover,
+.button-style2-active {
     color: #eee;
     background: #C38213;
     border-color: #eee;
@@ -79,7 +81,7 @@ img {
     color: black;
     padding: 20px 10px;
 }
-.content h2 {
+.content h1 {
     margin-bottom: 20px;
     text-align: center;
 }
