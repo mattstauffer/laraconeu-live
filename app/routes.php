@@ -3,7 +3,7 @@
 Route::get('/', ['as' => 'home', 'uses' => 'SiteController@showMessages']);
 Route::get('schedule', ['as' => 'schedule', 'uses' => 'SiteController@showSchedule']);
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin', 'before' => 'auth.basic'], function() {
     Route::get('/', ['as' => 'admin', 'uses' => 'AdminController@index']);
     Route::get('message/create', ['as' => 'message.create', 'uses' => 'AdminController@create']);
     Route::post('message', ['as' => 'message.store', 'uses' => 'AdminController@store']);
