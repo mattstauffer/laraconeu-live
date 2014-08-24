@@ -2,7 +2,7 @@
 
 @section('content')
 
-<p class="timezone-notice">Timezone is UTC</p>
+<p class="timezone-notice">Timezone is CET</p>
 
 <h1>{{ date('F j, Y') }}</h1>
 
