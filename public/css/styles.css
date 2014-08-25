@@ -12,7 +12,7 @@ body {
 }
 
 a {
-    color: #0A4BA0;
+    color: #C38213;
     text-decoration: none;
 }
 a:hover {
@@ -89,6 +89,9 @@ p {
     margin-bottom: 20px;
     text-align: center;
 }
+.content a {
+    color: #0A4BA0;
+}
 
 .timezone-notice {
     color: #999;
@@ -112,6 +115,16 @@ p {
 @media (min-width: 768px) {
     .message .text {
         font-size: 1.4em;
+    }
+}
+.message .picture {
+    max-height: 200px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+@media (min-width: 768px) {
+    .message .picture {
+        max-height: 400px;
     }
 }
 
@@ -148,4 +161,8 @@ table.messages-overview td {
 }
 .form-textarea {
     width: 96%;
+}
+.form-file {
+    float: right;
+    margin-top: 20px;
 }

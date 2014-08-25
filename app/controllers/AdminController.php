@@ -20,6 +20,21 @@ class AdminController extends BaseController
         $message = new Message;
         $message->published_at = new DateTime;
         $message->message = Input::get('message');
+
+        // Handle file upload.
+        if (Input::hasFile('picture')) {
+            // Get uploaded picture
+            $picture = Input::file('picture');
+
+            // Generate random filename
+            $filename = strtolower(Str::random(24) . '.' . $picture->getClientOriginalExtension());
+
+            // Move picture to file folder
+            $picture->move(public_path('files'), $filename);
+
+            $message->picture = $filename;
+        }
+
         $message->save();
 
         return Redirect::route('admin');

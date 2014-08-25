@@ -12,6 +12,7 @@
         <tr>
             <th>Published At</th>
             <th>Message</th>
+            <th>Picture</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -20,6 +21,11 @@
         <tr>
             <td>{{ $message->published_at->format('d/m/Y H:i:s') }}</td>
             <td>{{ Str::words(strip_tags($message->message), 15) }}</td>
+            <td>
+                @if ($message->picture)
+                <a href="{{ asset('files/' . $message->picture) }}" target="_blank">View</a>
+                @endif
+            </td>
             <td>
                 <a href="{{ route('message.edit', $message->id) }}">edit</a> |
                 <a href="{{ route('message.delete', $message->id) }}">delete</a>
