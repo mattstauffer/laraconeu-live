@@ -28,11 +28,7 @@
         <a class="button button-style2" href="{{ route('home') }}">Live Blog</a>
         @endif
 
-        @if (Route::currentRouteNamed('schedule'))
-        <div class="button button-style1 button-style1-active">Schedule</div>
-        @else
-        <a class="button button-style1" href="{{ route('schedule') }}">Schedule</a>
-        @endif
+        <a class="button button-style1" href="http://laracon.eu/2014/" target="_blank">Schedule</a>
     </div>
 </header>
 

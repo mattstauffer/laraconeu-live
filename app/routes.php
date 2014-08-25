@@ -1,7 +1,6 @@
 <?php
 
 Route::get('/', ['as' => 'home', 'uses' => 'SiteController@showMessages']);
-Route::get('schedule', ['as' => 'schedule', 'uses' => 'SiteController@showSchedule']);
 
 Route::group(['prefix' => 'admin', 'before' => 'auth.basic'], function() {
     Route::get('/', ['as' => 'admin', 'uses' => 'AdminController@index']);

@@ -12,9 +12,4 @@ class SiteController extends BaseController
 
         return View::make('live', compact('messages'));
     }
-
-    public function showSchedule()
-    {
-        return View::make('schedule');
-    }
 }
