@@ -4,7 +4,17 @@
     <meta name="viewport" content="width=device-width">
 
     <title>Laracon EU Live Blog</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="{{ asset('img/apple-touch-icon_144.png') }}">
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('img/apple-touch-icon_144.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('img/apple-touch-icon_114.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('img/apple-touch-icon_72.png') }}">
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('img/apple-touch-icon_57.png') }}">
 
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -42,6 +52,7 @@
     <div class="container">
         Copyright &copy; 2014 Laracon EU |
         <a href="http://laracon.eu" target="_blank">Website</a> |
+        <a href="https://joind.in/event/view/2097" target="_blank">Joind.in</a> |
         <a href="https://github.com/driesvints/laraconeu-live" target="_blank">Source Code</a>
     </div>
 </footer>
