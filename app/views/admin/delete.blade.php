@@ -7,7 +7,7 @@
 <p>Are you sure you want to delete this message?</p>
 
 <div class="message">
-    <div class="date">{{ $message->published_at->format('H:i:s') }}</div>
+    <div class="date">{{ $message->published_at->format('H:i') }}</div>
     <div class="text">{{ $message->message }}</div>
     <div class="clear"></div>
 </div>

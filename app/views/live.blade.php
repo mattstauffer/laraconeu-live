@@ -9,7 +9,7 @@
 @if (count($messages))
     @foreach($messages as $message)
     <div class="message">
-        <div class="date">{{ $message->published_at->format('H:i:s') }}</div>
+        <div class="date">{{ $message->published_at->format('H:i') }}</div>
         <div class="text">{{ $message->message }}</div>
         <div class="clear"></div>
     </div>
