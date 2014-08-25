@@ -21,19 +21,7 @@ class AdminController extends BaseController
         $message->published_at = new DateTime;
         $message->message = Input::get('message');
 
-        // Handle file upload.
-        if (Input::hasFile('picture')) {
-            // Get uploaded picture
-            $picture = Input::file('picture');
-
-            // Generate random filename
-            $filename = strtolower(Str::random(24) . '.' . $picture->getClientOriginalExtension());
-
-            // Move picture to file folder
-            $picture->move(public_path('files'), $filename);
-
-            $message->picture = $filename;
-        }
+        $message = $this->savePicture($message);
 
         $message->save();
 
@@ -52,6 +40,13 @@ class AdminController extends BaseController
         $message = Message::find($id);
         $message->published_at = Input::get('published_at');
         $message->message = Input::get('message');
+
+        if (Input::has('delete_picture')) {
+            $message = $this->deletePicture($message);
+        } else {
+            $message = $this->savePicture($message);
+        }
+
         $message->save();
 
         return Redirect::route('admin');
@@ -66,8 +61,47 @@ class AdminController extends BaseController
 
     public function destroy($id)
     {
-        Message::destroy($id);
+        $message = Message::find($id);
+
+        $this->deletePicture($message);
+
+        $message->delete();
 
         return Redirect::route('admin');
+    }
+
+    protected function savePicture(Message $message)
+    {
+        // Handle file upload.
+        if (Input::hasFile('picture')) {
+            // Get uploaded picture
+            $picture = Input::file('picture');
+
+            // Generate random filename
+            $filename = strtolower(Str::random(24) . '.' . $picture->getClientOriginalExtension());
+
+            // Move picture to file folder
+            $picture->move(public_path('files'), $filename);
+
+            $message->picture = $filename;
+        }
+
+        return $message;
+    }
+
+    protected function deletePicture(Message $message)
+    {
+        // If an image is associated, delete it.
+        if ($message->picture) {
+            $file = public_path('files/' . $message->picture);
+
+            if (file_exists($file)) {
+                unlink($file);
+            }
+
+            $message->picture = null;
+        }
+
+        return $message;
     }
 }

@@ -8,22 +8,14 @@
 
 @if (count($messages))
     @foreach($messages as $message)
-    <div class="message">
-        <div class="date">{{ $message->published_at->format('H:i') }}</div>
-
-        @if ($message->picture)
-        <div class="picture">
-            <a href="{{ asset('files/' . $message->picture) }}" target="_blank">
-                <img src="{{ asset('files/' . $message->picture) }}" alt="" />
-            </a>
-        </div>
-        @endif
-
-        <div class="text">{{ $message->message }}</div>
-    </div>
+    {{ View::make('_message', compact('message')) }}
     @endforeach
 @else
-<p>No messages yet.</p>
+<div class="countdown-message">
+    <p>Laracon EU starts on the 28th of August. We'll sporadically post updates on the 28th and will fully live-blog the main event on the 29th and 30th.</p>
+    <p>Tune in here for live coverage during the event!</p>
+    <p>The Laracon EU Staff</p>
+</div>
 @endif
 
 @stop
