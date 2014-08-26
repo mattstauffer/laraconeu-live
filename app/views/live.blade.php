@@ -2,9 +2,8 @@
 
 @section('content')
 
+<h1 class="live-blog-date">{{ date('F j, Y') }}</h1>
 <p class="timezone-notice">Timezone is CET</p>
-
-<h1>{{ date('F j, Y') }}</h1>
 
 <div id="live-blog">
     @if (count($messages))

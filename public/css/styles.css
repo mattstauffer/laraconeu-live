@@ -36,13 +36,19 @@ h3 {
     font-family: apercuregular,sans-serif;
     border-radius: 5em;
     background: #eee;
-    border: .2em solid #eee;
+    border: 0.1em solid #eee;
     padding: .5em 1.25em;
     margin: .5em;
     text-decoration: none;
     display: inline-block;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 1.2em;
+}
+@media only screen and (min-width: 500px) {
+    .button {
+        border-width: 0.2em;
+        font-size: 20px;
+    }
 }
 .button-style1 {
     color: #094BA0;
@@ -82,7 +88,13 @@ h3 {
     display: block;
     margin: 0 auto;
     margin-bottom: 15px;
-    width: 75%;
+    /*width: 95%;*/
+}
+
+@media (min-width: 768px) {
+    .site-header img {
+        width: 75%;
+    }
 }
 
 #countdown-message {
@@ -104,28 +116,39 @@ h3 {
     text-align: center;
 }
 
+
+.live-blog-date, .content .live-blog-date {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
 .timezone-notice {
     color: #999;
     font-size: .8em;
+    margin-bottom: 2em;
     text-align: center;
 }
 
 .message {
-    border: 4px solid #C8C8C8;
+    /*border: 1px solid #C8C8C8;*/
     background-color: #fefefe;
+    box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
     margin-bottom: 25px;
-    padding: 10px;
+    padding: 1em;
 }
 .message .date {
+    color: #ccc;
+    font-size: 0.8em;
     margin-bottom: 5px;
-    text-align: center;
+    text-align: left;
 }
 .message .text {
     font-size: 1.1em;
+    line-height: 1.35;
 }
 @media (min-width: 768px) {
     .message .text {
-        font-size: 1.4em;
+        font-size: 1.3em;
     }
 }
 .message .picture {
@@ -181,3 +204,4 @@ table.messages-overview td {
     float: right;
     margin-top: 20px;
 }
+
