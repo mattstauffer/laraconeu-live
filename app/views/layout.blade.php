@@ -57,7 +57,7 @@
     </div>
 </footer>
 
-@if (Route::currentRouteNamed('home'))
+@if (Route::currentRouteNamed('home') && isset($_ENV['PUSHER_KEY']))
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
     <script type="text/javascript">
