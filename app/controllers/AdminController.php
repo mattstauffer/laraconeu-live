@@ -25,6 +25,10 @@ class AdminController extends BaseController
 
         $message->save();
 
+        $renderedMessage = View::make('_message', compact('message'))->render();
+
+        Pusherer::trigger('live_blog', 'blog_message', ['message' => $renderedMessage]);
+
         return Redirect::route('admin');
     }
 

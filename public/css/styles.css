@@ -85,7 +85,7 @@ h3 {
     width: 75%;
 }
 
-.countdown-message {
+#countdown-message {
     font-size: 1.4em;
     text-align: center;
     border: 4px solid #C8C8C8;
