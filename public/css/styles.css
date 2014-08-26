@@ -33,7 +33,6 @@ h3 {
 }
 
 .button {
-    font-family: apercuregular,sans-serif;
     border-radius: 5em;
     background: #eee;
     border: 0.1em solid #eee;
@@ -88,7 +87,6 @@ h3 {
     display: block;
     margin: 0 auto;
     margin-bottom: 15px;
-    /*width: 95%;*/
 }
 
 @media (min-width: 768px) {
@@ -117,7 +115,8 @@ h3 {
 }
 
 
-.live-blog-date, .content .live-blog-date {
+.live-blog-date,
+.content .live-blog-date {
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -130,7 +129,6 @@ h3 {
 }
 
 .message {
-    /*border: 1px solid #C8C8C8;*/
     background-color: #fefefe;
     box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
     margin-bottom: 25px;
@@ -140,7 +138,6 @@ h3 {
     color: #ccc;
     font-size: 0.8em;
     margin-bottom: 5px;
-    text-align: left;
 }
 .message .text {
     font-size: 1.1em;
