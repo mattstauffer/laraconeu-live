@@ -1,5 +1,5 @@
 <div class="message">
-    <div class="date">{{ $message->published_at->diffForHumans() }}</div>
+    <div class="date"><span data-livestamp="{{ $message->published_at->getTimestamp() }}"></span></div>
 
     @if ($message->picture)
     <div class="picture">
