@@ -13,6 +13,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th width="50"></th>
             <th>Name</th>
             <th width="100">Actions</th>
         </tr>
@@ -20,6 +21,7 @@
     <tbody>
         @foreach($users as $user)
         <tr>
+            <td><img src="{{ $user->getGravatarUrl(50) }}" al=""></td>
             <td>{{ $user->fullname() }}</td>
             <td>
                 <a href="{{ route('user.edit', $user->id) }}">edit</a> |

@@ -43,8 +43,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface
         return md5(strtolower(trim($this->email)));
     }
 
-    public function getGravatarUrl()
+    public function getGravatarUrl($size = 80)
     {
-        return 'http://www.gravatar.com/avatar/' . $this->getGravatarHash();
+        return 'http://www.gravatar.com/avatar/' . $this->getGravatarHash() . '?s=' . $size;
     }
 }
