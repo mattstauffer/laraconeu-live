@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width">
 
     <title>Laracon EU Live Blog</title>
+    <link rel="stylesheet" href="{{ asset('js/datetimepicker/datetimepicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
@@ -49,34 +50,49 @@
     </div>
 </footer>
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 @if (Route::currentRouteNamed('home') && isset($_ENV['PUSHER_KEY']))
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="{{ asset('js/moment.min.js') }}"></script>
-    <script src="{{ asset('js/livestamp.min.js') }}"></script>
-    <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        // Enable pusher logging - don't include this in production
-        Pusher.log = function(message) {
-            if (window.console && window.console.log) {
-                window.console.log(message);
-            }
-        };
+<script src="{{ asset('js/moment.min.js') }}"></script>
+<script src="{{ asset('js/livestamp.min.js') }}"></script>
+<script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Enable pusher logging - don't include this in production
+    Pusher.log = function(message) {
+        if (window.console && window.console.log) {
+            window.console.log(message);
+        }
+    };
 
-        var pusher = new Pusher('{{ $_ENV['PUSHER_KEY'] }}');
-        var channel = pusher.subscribe('live_blog');
-        channel.bind('blog_message', function(data) {
-            var liveBlog = $("#live-blog");
-            var countdownMessage = $("#countdown-message");
+    var pusher = new Pusher('{{ $_ENV['PUSHER_KEY'] }}');
+    var channel = pusher.subscribe('live_blog');
+    channel.bind('blog_message', function(data) {
+        var liveBlog = $("#live-blog");
+        var countdownMessage = $("#countdown-message");
 
-            // If the countdown message is still showing, remove it
-            if (countdownMessage.length) {
-                countdownMessage.remove();
-            }
+        // If the countdown message is still showing, remove it
+        if (countdownMessage.length) {
+            countdownMessage.remove();
+        }
 
-            // Add the message to the live blog on top
-            liveBlog.prepend(data.message);
+        // Add the message to the live blog on top
+        liveBlog.prepend(data.message);
+    });
+</script>
+@endif
+@if (! Route::currentRouteNamed('home'))
+<script src="{{ asset('js/datetimepicker/datetimepicker.min.js') }}"></script>
+<script>
+$(function(){
+    var dtBox = $("#dtBox");
+
+    if (dtBox.length) {
+        dtBox.DateTimePicker({
+            dateTimeFormat: "yyyy-MM-dd HH:mm:ss"
         });
-    </script>
+    }
+});
+</script>
 @endif
 
 </body>

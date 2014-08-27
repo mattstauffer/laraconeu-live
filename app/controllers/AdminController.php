@@ -42,7 +42,7 @@ class AdminController extends BaseController
     public function update($id)
     {
         $message = Message::find($id);
-        $message->published_at = Input::get('published_at');
+        $message->published_at = DateTime::createFromFormat('Y-m-d H:i', Input::get('published_at'));
         $message->message = Input::get('message');
 
         if (Input::has('delete_picture')) {
