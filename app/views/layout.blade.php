@@ -56,7 +56,7 @@
     </div>
 </footer>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/js/libs/jquery-1.9.1.min.js"></script>
 
 @if (Route::currentRouteNamed('home') && isset($_ENV['PUSHER_KEY']))
 <script src="{{ asset('js/moment.min.js') }}"></script>
@@ -73,20 +73,45 @@
     var pusher = new Pusher('{{ $_ENV['PUSHER_KEY'] }}');
     var channel = pusher.subscribe('live_blog');
     channel.bind('blog_message', function(data) {
-        var liveBlog = $("#live-blog");
-        var countdownMessage = $("#countdown-message");
+        var $liveBlog = $("#live-blog"),
+            $countdownMessage = $("#countdown-message");
 
         // If the countdown message is still showing, remove it
-        if (countdownMessage.length) {
-            countdownMessage.remove();
+        if ($countdownMessage.length) {
+            $countdownMessage.remove();
         }
 
+        // Prep and hide the message
+        var $thisMessage = $(data.message);
+
+        $thisMessage.css('display', 'none');
+
         // Add the message to the live blog on top
-        liveBlog.prepend(data.message);
+        $liveBlog.prepend($thisMessage);
+
+        // Animate the message in
+        $thisMessage.slideDown();
     });
 </script>
+
+@elseif (Route::currentRouteNamed('home'))
+    <script>
+    // Make fake messages arrive for testing purposes
+    var $liveBlog = $('#live-blog'),
+        fakeMessage = '<div class="message" style="display: none;"><div class="date"><span data-livestamp="1409098465"></span></div><div class="text">This is another message.</div></div>';
+
+    setInterval(function() {
+        var $thisMessage = $(fakeMessage);
+
+        $liveBlog.prepend($thisMessage);
+
+        $thisMessage.slideDown();
+    }, 3000);
+
+    </script>
 @endif
-@if (! Route::currentRouteNamed('home'))
+
+@if ( ! Route::currentRouteNamed('home'))
 <script src="{{ asset('js/datetimepicker/datetimepicker.min.js') }}"></script>
 <script>
 $(function(){
