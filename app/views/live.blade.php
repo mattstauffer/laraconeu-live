@@ -4,6 +4,7 @@
 
 <h1 class="live-blog-date">{{ date('F j, Y') }}</h1>
 <p class="timezone-notice">Timezone is CET</p>
+<a class="button button-style1" href="http://laracon.eu/2014/" target="_blank">Today's Schedule</a>
 
 <div id="live-blog">
     @if (count($messages))

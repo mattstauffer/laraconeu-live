@@ -1,7 +1,43 @@
+@font-face {
+    font-family: 'apercuitalic';
+    src: url('../fonts/apercuitalic-webfont.eot');
+    src: url('../fonts/apercuitalic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/apercuitalic-webfont.woff') format('woff'), url('../fonts/apercuitalic-webfont.ttf') format('truetype'), url('../fonts/apercuitalic-webfont.svg#apercuitalic') format('svg');
+    font-weight: normal;
+    font-style: normal; }
+
+@font-face {
+    font-family: 'apercubold';
+    src: url('../fonts/apercubold-webfont.eot');
+    src: url('../fonts/apercubold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/apercubold-webfont.woff') format('woff'), url('../fonts/apercubold-webfont.ttf') format('truetype'), url('../fonts/apercubold-webfont.svg#apercubold') format('svg');
+    font-weight: normal;
+    font-style: normal; }
+
+@font-face {
+    font-family: 'apercuregular';
+    src: url('../fonts/apercuregular-webfont.eot');
+    src: url('../fonts/apercuregular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/apercuregular-webfont.woff') format('woff'), url('../fonts/apercuregular-webfont.ttf') format('truetype'), url('../fonts/apercuregular-webfont.svg#apercuregular') format('svg');
+    font-weight: normal;
+    font-style: normal; }
+
+@font-face {
+    font-family: 'aperculight_italic';
+    src: url('../fonts/aperculightitalic-webfont.eot');
+    src: url('../fonts/aperculightitalic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/aperculightitalic-webfont.woff') format('woff'), url('../fonts/aperculightitalic-webfont.ttf') format('truetype'), url('../fonts/aperculightitalic-webfont.svg#aperculight_italic') format('svg');
+    font-weight: normal;
+    font-style: normal; }
+
+@font-face {
+    font-family: 'aperculight';
+    src: url('../fonts/aperculight-webfont.eot');
+    src: url('../fonts/aperculight-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/aperculight-webfont.woff') format('woff'), url('../fonts/aperculight-webfont.ttf') format('truetype'), url('../fonts/aperculight-webfont.svg#aperculight') format('svg');
+    font-weight: normal;
+    font-style: normal; }
+
 * {
     border: 0;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -37,11 +73,12 @@ h3 {
     background: #eee;
     border: 0.1em solid #eee;
     padding: .5em 1.25em;
-    margin: .5em;
     text-decoration: none;
-    display: inline-block;
+    display: block;
     font-weight: 400;
     font-size: 1.2em;
+    width: 220px;
+    margin: 0 auto 1.5em auto;
 }
 @media only screen and (min-width: 500px) {
     .button {
@@ -74,8 +111,12 @@ h3 {
 }
 
 .container {
-    max-width: 960px;
-    margin: 0 auto;
+    max-width: 760px;
+    margin: auto;
+
+    @media (min-width: 768px) {
+        padding:40px 0;
+    }
 }
 
 .site-header {
@@ -85,23 +126,25 @@ h3 {
 }
 .site-header img {
     display: block;
-    margin: 0 auto;
-    margin-bottom: 15px;
+    padding:30px 0;
+    margin: auto;
 }
 
 @media (min-width: 768px) {
     .site-header img {
-        width: 75%;
+        width: 100%;
     }
 }
 
 #countdown-message {
-    font-size: 1.4em;
+    font-size: 1.2em;
+    line-height: 1.5;
     text-align: center;
     border: 4px solid #C8C8C8;
     background-color: #fefefe;
     margin-bottom: 25px;
-    padding: 10px;
+    padding: 25px;
+    font-family: apercuregular;
 }
 
 .content {
@@ -117,14 +160,16 @@ h3 {
 
 .live-blog-date,
 .content .live-blog-date {
-    margin-bottom: 0;
-    padding-bottom: 0;
+    padding:11px 0;
+    margin:0;
+    font-family: 'aperculight';
+    color:#0A4BA0;
+    text-transform: uppercase;
 }
 
 .timezone-notice {
     color: #999;
     font-size: .8em;
-    margin-bottom: 2em;
     text-align: center;
 }
 
@@ -132,26 +177,28 @@ h3 {
     background-color: #fefefe;
     box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
     margin-bottom: 25px;
-    padding: 1em;
+    padding: 2em;
 }
 .message .date {
     color: #ccc;
-    font-size: 0.8em;
+    font-size: 0.9em;
     margin-bottom: 5px;
 }
 .message .text {
-    font-size: 1.1em;
-    line-height: 1.35;
+    font-family: apercuregular;
+    font-size: 1em;
+    line-height: 1.5;
 }
 @media (min-width: 768px) {
     .message .text {
-        font-size: 1.3em;
+        font-size: 1em;
     }
 }
 .message .picture {
     max-height: 200px;
     margin-bottom: 15px;
     overflow: hidden;
+
 }
 @media (min-width: 768px) {
     .message .picture {
@@ -162,10 +209,18 @@ h3 {
 .site-footer {
     border-top: 4px solid #C8C8C8;
     color: #999;
-    font-size: .9em;
-    padding: 10px;
+    font-size: .8em;
+    padding: 15px;
+    font-family: apercuregular;
     text-align: center;
 }
+
+.site-footer a {
+    padding: 0 5px;
+}
+
+
+
 
 /* Admin
 ------------------------------------------------------------*/

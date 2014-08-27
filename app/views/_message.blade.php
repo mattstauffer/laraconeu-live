@@ -1,5 +1,5 @@
 <div class="message">
-    <div class="date">{{ $message->published_at->format('H:i') }}</div>
+    <div class="date">{{ $message->published_at->diffForHumans() }}</div>
 
     @if ($message->picture)
     <div class="picture">
