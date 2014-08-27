@@ -42,9 +42,9 @@
 
 <footer class="site-footer">
     <div class="container">
-        Copyright &copy; 2014 Laracon EU |
-        <a href="http://laracon.eu" target="_blank">Website</a> |
-        <a href="https://joind.in/event/view/2097" target="_blank">Joind.in</a> |
+        Copyright &copy; 2014 Laracon EU <span class="separator">|</span>
+        <a href="http://laracon.eu" target="_blank">Website</a> <span class="separator">|</span>
+        <a href="https://joind.in/event/view/2097" target="_blank">Joind.in</a> <span class="separator">|</span>
         <a href="https://github.com/driesvints/laraconeu-live" target="_blank">Source Code</a>
     </div>
 </footer>

@@ -79,6 +79,7 @@ h3 {
     font-size: 1.2em;
     width: 220px;
     margin: 0 auto 1.5em auto;
+    text-align: center;
 }
 @media only screen and (min-width: 500px) {
     .button {
@@ -215,12 +216,9 @@ h3 {
     text-align: center;
 }
 
-.site-footer a {
+.site-footer .separator {
     padding: 0 5px;
 }
-
-
-
 
 /* Admin
 ------------------------------------------------------------*/

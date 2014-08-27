@@ -10,16 +10,16 @@
 <table class="messages-overview">
     <thead>
         <tr>
-            <th>Published At</th>
+            <th width="130">Published At</th>
             <th>Message</th>
             <th>Picture</th>
-            <th>Actions</th>
+            <th width="100">Actions</th>
         </tr>
     </thead>
     <tbody>
         @foreach($messages as $message)
         <tr>
-            <td>{{ $message->published_at->format('d/m/Y H:i:s') }}</td>
+            <td>{{ $message->published_at->format('d/m H:i:s') }}</td>
             <td>{{ Str::words(strip_tags($message->message), 15) }}</td>
             <td>
                 @if ($message->picture)
