@@ -7,7 +7,7 @@
 <p>Please don't post crap. Only actual Laracon EU material.</p>
 
 {{ Form::open(['route' => 'message.store', 'files' => true]) }}
-    {{ Form::textarea('message', null, ['class' => 'form-textarea', 'placeholder' => 'Message']) }}
+    {{ Form::textarea('message', null, ['class' => 'form-textarea', 'placeholder' => 'Message *']) }}
     <?php echo $errors->first('message', '<p>:message</p>'); ?>
 
     {{ Form::file('picture', ['class' => 'form-file']) }}
