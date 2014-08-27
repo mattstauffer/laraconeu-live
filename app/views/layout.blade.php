@@ -31,7 +31,11 @@
 
 <header class="site-header">
     <div class="container">
+        @if (! Route::currentRouteNamed('home'))
+        <a href="{{ route('home') }}"><img src="{{ asset('img/logo.png') }}" alt="Laracon EU" /></a>
+        @else
         <img src="{{ asset('img/logo.png') }}" alt="Laracon EU" />
+        @endif
     </div>
 </header>
 
