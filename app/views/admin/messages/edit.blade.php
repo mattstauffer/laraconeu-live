@@ -4,6 +4,8 @@
 
 <h1>Edit Message</h1>
 
+<p>Please don't post crap. Only actual Laracon EU material.</p>
+
 {{ Form::open(['route' => ['message.update', $message->id], 'method' => 'PUT', 'files' => true]) }}
     @if ($message->picture)
     <label class="remove-picture-checkbox">
