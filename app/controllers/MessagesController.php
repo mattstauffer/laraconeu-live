@@ -1,25 +1,33 @@
 <?php
 
-class AdminController extends BaseController
+class MessagesController extends BaseController
 {
     public function index()
     {
-        // Only show the messages from this day
         $messages = Message::orderBy('published_at', 'desc')->get();
 
-        return View::make('admin.index', compact('messages'));
+        return View::make('admin.messages.index', compact('messages'));
     }
 
     public function create()
     {
-        return View::make('admin.create');
+        return View::make('admin.messages.create');
     }
 
     public function store()
     {
+        $validator = Validator::make(Input::all(), [
+            'message' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return Redirect::back()->withInput(Input::except('password'))->withErrors($validator);
+        }
+
         $message = new Message;
         $message->published_at = new DateTime;
         $message->message = Input::get('message');
+        $message->user_id = Auth::user()->id;
 
         $message = $this->savePicture($message);
 
@@ -36,11 +44,19 @@ class AdminController extends BaseController
     {
         $message = Message::find($id);
 
-        return View::make('admin.edit', compact('message'));
+        return View::make('admin.messages.edit', compact('message'));
     }
 
     public function update($id)
     {
+        $validator = Validator::make(Input::all(), [
+            'message' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return Redirect::back()->withInput(Input::except('password'))->withErrors($validator);
+        }
+
         $message = Message::find($id);
         $message->published_at = DateTime::createFromFormat('Y-m-d H:i', Input::get('published_at'));
         $message->message = Input::get('message');
@@ -60,7 +76,7 @@ class AdminController extends BaseController
     {
         $message = Message::find($id);
 
-        return View::make('admin.delete', compact('message'));
+        return View::make('admin.messages.delete', compact('message'));
     }
 
     public function destroy($id)

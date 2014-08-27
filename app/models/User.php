@@ -27,4 +27,24 @@ class User extends Eloquent implements UserInterface, RemindableInterface
     {
         $this->attributes['password'] = Hash::make($value);
     }
+
+    public function messages()
+    {
+        return $this->hasMany('Message');
+    }
+
+    public function fullname()
+    {
+        return implode(' ', [$this->first_name, $this->last_name]);
+    }
+
+    public function getGravatarHash()
+    {
+        return md5(strtolower(trim($this->email)));
+    }
+
+    public function getGravatarUrl()
+    {
+        return 'http://www.gravatar.com/avatar/' . $this->getGravatarHash();
+    }
 }

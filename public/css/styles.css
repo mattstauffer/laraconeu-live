@@ -86,6 +86,14 @@ form .button {
     margin: 0 10px 0 0;
     width: auto;
 }
+.button-grouped {
+    text-align: center;
+}
+.button-grouped .button {
+    display: inline-block;
+    margin: 0 10px 1.5em 10px;
+    width: auto;
+}
 @media only screen and (min-width: 500px) {
     .button {
         border-width: 0.2em;
@@ -184,6 +192,22 @@ form .button {
     box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
     margin-bottom: 25px;
     padding: 2em;
+    position: relative;
+}
+
+/** @todo: find a nice way to display user on mobile */
+.message .user {
+    display: none;
+    text-align: center;
+    width: 80px;
+}
+@media (min-width: 968px) {
+    .message .user {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -90px;
+    }
 }
 .message .date {
     color: #ccc;
@@ -228,14 +252,14 @@ form .button {
 /* Admin
 ------------------------------------------------------------*/
 
-table.messages-overview {
+table.table {
     width: 100%;
 }
-table.messages-overview th {
+table.table th {
     text-align: left;
 }
-table.messages-overview th,
-table.messages-overview td {
+table.table th,
+table.table td {
     padding: 5px 7px;
     vertical-align: top;
 }

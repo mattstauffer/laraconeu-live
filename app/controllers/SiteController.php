@@ -6,7 +6,7 @@ class SiteController extends BaseController
     {
         // Only show the messages from this day
         $messages = Message::where('published_at', '>', date('Y-m-d') . ' 00:00:00')
-            ->where('published_at', '<=', date('Y-m-d') . ' 23:59:59')
+            ->where('published_at', '<=', date('Y-m-d H:i:s'))
             ->orderBy('published_at', 'desc')
             ->get();
 

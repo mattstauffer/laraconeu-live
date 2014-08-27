@@ -4,15 +4,18 @@
 
 <h1>Messages</h1>
 
-<a class="button button-style1" href="{{ route('message.create') }}">Create Message</a>
+<div class="button-grouped">
+    <a class="button button-style2" href="{{ route('message.create') }}">Create Message</a>
+    <a class="button button-style1" href="{{ route('users') }}">Users</a>
+</div>
 
 @if (count($messages))
-<table class="messages-overview">
+<table class="table">
     <thead>
         <tr>
             <th width="160">Published At</th>
             <th>Message</th>
-            <th>Picture</th>
+            <th width="90">User</th>
             <th width="100">Actions</th>
         </tr>
     </thead>
@@ -21,11 +24,7 @@
         <tr>
             <td>{{ $message->published_at->format('d/m/Y H:i:s') }}</td>
             <td>{{ Str::words(strip_tags($message->message), 15) }}</td>
-            <td>
-                @if ($message->picture)
-                <a href="{{ asset('files/' . $message->picture) }}" target="_blank">View</a>
-                @endif
-            </td>
+            <td>{{ $message->user->first_name }}</td>
             <td>
                 <a href="{{ route('message.edit', $message->id) }}">edit</a> |
                 <a href="{{ route('message.delete', $message->id) }}">delete</a>
