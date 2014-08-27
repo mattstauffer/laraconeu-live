@@ -81,6 +81,11 @@ h3 {
     margin: 0 auto 1.5em auto;
     text-align: center;
 }
+form .button {
+    display: inline-block;
+    margin: 0 10px 0 0;
+    width: auto;
+}
 @media only screen and (min-width: 500px) {
     .button {
         border-width: 0.2em;
@@ -244,7 +249,7 @@ table.messages-overview td {
     min-width: 300px;
 }
 .form-textarea {
-    width: 96%;
+    width: 100%;
 }
 .form-file {
     float: right;
