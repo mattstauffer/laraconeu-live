@@ -197,7 +197,9 @@ form .button {
 
 /** @todo: find a nice way to display user on mobile */
 .message .user {
+    color: #999;
     display: none;
+    font-size: 0.9em;
     text-align: center;
     width: 80px;
 }
